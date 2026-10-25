@@ -1,0 +1,18 @@
+[
+  {
+    "stepTitle": "运行设置",
+    "items": [
+      {
+        "type": "text",
+        "field": "wizard_proxy_url",
+        "label": "代理地址",
+        "initValue": "",
+        "rules": [ { "pattern": "^(https?://.+)?$", "message": "请填写 http:// 开头的代理地址" } ]
+      },
+      {
+        "type": "tips",
+        "helpText": "Cookie、保存目录、频道列表请在应用页面的「设置」标签里修改。"
+      }
+    ]
+  }
+]

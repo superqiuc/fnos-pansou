@@ -1,0 +1,16 @@
+appname               = pansou
+version               = 1.0.0
+display_name          = 网盘搜索
+desc                  = 运行在飞牛 fnOS 上的网盘资源搜索与夸克转存工具。<br>从配置的 Telegram 频道检索夸克分享链接，支持关键词搜索、手动链接解析、一键转存到自己的夸克网盘。<br>Cookie 与配置只保存在本机应用数据目录，不经过第三方服务器。<br><b>需要可访问 t.me 的网络（通常配合 mihomo 代理），转存需要夸克账号 Cookie。</b>
+platform              = x86
+source                = thirdparty
+maintainer            = superqiuc
+maintainer_url        = https://github.com/
+distributor           = superqiuc
+os_min_version        = 1.1.8
+desktop_uidir         = ui
+desktop_applaunchname = pansou.main
+ctl_stop              = true
+service_port          = 8909
+checkport             = true
+changelog             = v1.0.0 首个公开版本。

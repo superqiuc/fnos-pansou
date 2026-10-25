@@ -1,0 +1,28 @@
+[
+  {
+    "stepTitle": "网络与账号",
+    "items": [
+      {
+        "type": "tips",
+        "helpText": "搜索依赖 Telegram 频道，国内网络通常需要代理。<br>转存需要夸克账号 Cookie：浏览器登录 pan.quark.cn 后，从开发者工具复制请求头里的 Cookie 整行。"
+      },
+      {
+        "type": "text",
+        "field": "wizard_proxy_url",
+        "label": "代理地址（可选，如 http://127.0.0.1:7890）",
+        "initValue": "",
+        "rules": [ { "pattern": "^(https?://.+)?$", "message": "请填写 http:// 开头的代理地址" } ]
+      },
+      {
+        "type": "tips",
+        "helpText": "夸克 Cookie 请在安装完成后，打开「网盘搜索」→「设置」页填写并保存（安装向导里不填，避免特殊字符导致安装失败）。"
+      },
+      {
+        "type": "text",
+        "field": "wizard_channels",
+        "label": "搜索频道（可选，逗号分隔，留空用内置列表）",
+        "initValue": ""
+      }
+    ]
+  }
+]

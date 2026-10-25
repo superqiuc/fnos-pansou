@@ -1,0 +1,11 @@
+# 构建产物
+dist/
+.tmp/
+app/bin/
+*.fpk
+*.sha256
+
+# 测试/临时
+tests/tmp/
+__pycache__/
+*.log

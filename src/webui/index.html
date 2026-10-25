@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网盘搜索</title>
+<link rel="stylesheet" href="app.css?v={{V}}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">搜</span><div><h1>网盘搜索</h1><p>找资源 · 一键转存夸克</p></div></div>
+  <span id="status-pill" class="pill"><i></i><span>连接中…</span></span>
+</header>
+<nav class="tabs">
+  <button class="tab active" data-tab="search">搜索</button>
+  <button class="tab" data-tab="settings">设置</button>
+  <button class="tab" data-tab="logs">日志</button>
+</nav>
+<main>
+  <section class="pane active" id="pane-search">
+    <section class="card">
+      <h2>搜索资源</h2>
+      <p class="hint">从配置的 Telegram 频道检索夸克分享链接。搜不到时换关键词，或检查代理是否可用。</p>
+      <div class="form-row">
+        <input id="q" class="grow" placeholder="输入片名 / 关键词，例如：庆余年">
+        <button id="btn-search" class="btn primary">搜索</button>
+      </div>
+      <p class="hint" id="search-status"></p>
+    </section>
+
+    <section class="card">
+      <h2>手动链接转存</h2>
+      <div class="form-row">
+        <input id="manual-url" class="grow" placeholder="https://pan.quark.cn/s/xxxx">
+        <input id="manual-pass" class="sm" placeholder="提取码（可选）">
+        <button id="btn-resolve" class="btn">解析</button>
+        <button id="btn-save-url" class="btn primary">转存</button>
+      </div>
+      <div id="resolve-box" class="hint"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><h2>结果</h2><span class="hint" id="result-count" style="margin:0"></span></div>
+      <div id="results" class="results"></div>
+    </section>
+  </section>
+
+  <section class="pane" id="pane-settings">
+    <section class="card">
+      <h2>夸克账号</h2>
+      <p class="hint">在浏览器登录 pan.quark.cn，打开开发者工具 → Network → 任意请求 → 复制请求头里的 Cookie 整行粘贴到这里。</p>
+      <div class="form-row"><label class="grow">Cookie<textarea id="quark-cookie" rows="3" placeholder="__puus=...; __pus=..."></textarea></label></div>
+      <div class="form-row">
+        <button id="btn-test-cookie" class="btn">测试 Cookie</button>
+      </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>搜索源</h2>
+      <p class="hint">每行一个 Telegram 频道 ID（不带 @）。国内网络需要代理才能访问 t.me。</p>
+      <div class="form-row"><label class="grow">频道列表<textarea id="channels" rows="6"></textarea></label></div>
+      <div class="form-row">
+        <label class="grow">代理地址<input id="proxy-url" placeholder="http://127.0.0.1:7890"></label>
+        <label>最多结果<input id="max-results" type="number" min="10" max="300"></label>
+        <button id="btn-test-proxy" class="btn">测试代理</button>
+      </div>
+      <p class="hint" id="proxy-result"></p>
+      <div class="form-row">
+        <label class="switch-field"><input id="strict-match" type="checkbox"><span class="track"></span><span>严格匹配<span class="switch-hint">只保留包含关键词的结果</span></span></label>
+      </div>
+      <div class="form-row"><button id="btn-save" class="btn primary">保存设置</button></div>
+      <p class="hint" id="settings-status"></p>
+    </section>
+  </section>
+
+  <section class="pane" id="pane-logs"><section class="card"><h2>运行日志</h2><pre class="logs" id="logs"></pre></section></section>
+</main>
+<div id="picker-modal" class="modal" hidden>
+  <div class="modal-card">
+    <h3>选择保存目录</h3>
+    <div class="picker-head">
+      <button id="btn-picker-up" class="btn ghost">↑ 上一级</button>
+      <span id="picker-path" class="hint" style="margin:0">根目录</span>
+    </div>
+    <div id="picker-list" class="picker-list"></div>
+    <div class="picker-foot">
+      <button id="btn-picker-cancel" class="btn">取消</button>
+      <button id="btn-picker-choose" class="btn primary">转存到当前目录</button>
+    </div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<script src="app.js?v={{V}}"></script>
+</body>
+</html>
